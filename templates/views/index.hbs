@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weather</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+        <p>Get your weather details here!</p>
+        <form action="">
+            <input type="text" placeholder="Location">
+            <button>Search</button>
+        </form>
+        <p id="msg1"></p>
+        <p id="msg2"></p>
+    </div>
+    {{>footer}}
+    <script src="./js/clientApp.js"></script>
+</body>
+
+</html>
