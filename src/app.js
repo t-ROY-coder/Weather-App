@@ -29,14 +29,14 @@ app.get("", (req, res) => {
 
 app.get("/about", (req, res) => {
     res.render("about", {
-        title: "About",
+        title: "Weather",
         name: "T. Roy",
     });
 });
 
 app.get("/help", (req, res) => {
     res.render("help", {
-        title: "Help",
+        title: "Weather",
         msg: "This is the help page",
         name: "T. Roy",
     });
