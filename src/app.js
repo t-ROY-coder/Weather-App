@@ -21,69 +21,70 @@ hbs.registerPartials(partialsPath);
 app.use(express.static(path.join(publicDir)));
 
 app.get("", (req, res) => {
-    res.render("index", {
-        title: "Weather",
-        name: "T. Roy",
-    });
+   res.render("index", {
+      title: "Weather",
+      name: "T. Roy",
+   });
 });
 
 app.get("/about", (req, res) => {
-    res.render("about", {
-        title: "Weather",
-        name: "T. Roy",
-    });
+   res.render("about", {
+      title: "Weather",
+      name: "T. Roy",
+   });
 });
 
 app.get("/help", (req, res) => {
-    res.render("help", {
-        title: "Weather",
-        msg: "This is the help page",
-        name: "T. Roy",
-    });
+   res.render("help", {
+      title: "Weather",
+      msg:
+         "Thank you for visiting this website. For any queries, drop a mail here: tanumonroy@gmail.com",
+      name: "T. Roy",
+   });
 });
 
 app.get("/weather", (req, res) => {
-    if (!req.query.address) {
-        return res.send({
-            error: "Please provide an address",
-        });
-    }
+   if (!req.query.address) {
+      return res.send({
+         error: "Please provide an address",
+      });
+   }
 
-    geocode(
-        req.query.address,
-        (error, { lattitude, longitude, location } = {}) => {
-            if (error) {
-                return res.send({
-                    error: error,
-                });
-            }
-            forecast(lattitude, longitude, (error, data) => {
-                if (error) {
-                    return res.send({
-                        error: error,
-                    });
-                }
-                res.send({
-                    location: location,
-                    forecast: data,
-                });
+   geocode(
+      req.query.address,
+      (error, { lattitude, longitude, location } = {}) => {
+         if (error) {
+            return res.send({
+               error: error,
             });
-        }
-    );
+         }
+         forecast(lattitude, longitude, (error, data) => {
+            if (error) {
+               return res.send({
+                  error: error,
+               });
+            }
+            res.send({
+               location: location,
+               forecast: data,
+            });
+         });
+      }
+   );
 });
 
 app.get("/help/*", (req, res) => {
-    res.render("404", {
-        msg: "Help article NOT found",
-    });
+   res.render("404", {
+      msg: "Help article NOT found",
+   });
 });
 
 app.get("*", (req, res) => {
-    res.render("404", {
-        msg: "404: Page NOT found",
-    });
+   res.render("404", {
+      msg: "404: Page NOT found",
+   });
 });
 
 app.listen(port, () => {
-    console.log("Server is up on port " + port);
+   console.log("Server is up on port " + port);
 });

@@ -66,6 +66,8 @@ input {
 button {
    font-size: 130%;
    border-radius: 5px;
+   background-color: rgba(41, 128, 185, 1);
+   color: #ffffff;
 }
 
 ion-icon {
