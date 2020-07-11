@@ -12,6 +12,9 @@ weatherForm.addEventListener("submit", (e) => {
    e.preventDefault();
    msg1.textContent = "Loading...";
    msg2.textContent = "";
+   msg3.textContent = "";
+   msg4.textContent = "";
+   msg5.textContent = "";
    fetch("/weather?address=" + encodeURIComponent(search.value)).then(
       (response) => {
          response.json().then((data) => {
